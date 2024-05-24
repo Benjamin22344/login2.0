@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Registrados</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Usuarios Registrados</h1>
+        <ul>
+            {% for usuario in usuarios %}
+                <li>
+                    {{ usuario['username'] }}
+                    <a href="{{ url_for('editar_usuario', user_id=usuario['id']) }}">Editar</a>
+                    <a href="{{ url_for('eliminar_usuario', user_id=usuario['id']) }}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('vista_registroLogin') }}">Registrar nuevo usuario</a>
+        <a href="{{ url_for('vista_registroLogin') }}">Registrar nuevo productos</a>
+    </div>
+</body>
+</html>
